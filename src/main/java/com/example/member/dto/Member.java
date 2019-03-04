@@ -6,9 +6,6 @@ import org.springframework.data.annotation.Id;
 
 import java.util.Date;
 
-/**
- * Created by vladyslav on 03.03.19.
- */
 @Data
 @AllArgsConstructor
 public class Member {
