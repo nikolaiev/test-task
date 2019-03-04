@@ -1,11 +1,11 @@
-package com.example.member.controller;
+package com.example.member.rest;
 
 import com.example.member.dto.Member;
-import com.example.member.repo.MemberRepository;
+import com.example.member.service.IMemberService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,32 +14,31 @@ import java.util.Optional;
 @AllArgsConstructor
 public class MemberController {
 
-    private MemberRepository repository;
+    private IMemberService memberService;
 
     @RequestMapping(method = RequestMethod.GET)
     public List<Member> getAllMembers() {
-        return repository.findAll();
+        return memberService.getAllMembers();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Member getMemberByID(@PathVariable String id) {
-        final Optional<Member> byId = repository.findById(id);
+        final Optional<Member> byId = memberService.getMemberByID(id);
         return byId.orElse(null);
     }
 
     @RequestMapping(value = "member/{id}", method = RequestMethod.DELETE)
     public void deleteMemberById(@PathVariable String id) {
-        repository.deleteById(id);
+        memberService.deleteMemberById(id);
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public Member saveMember(@RequestBody Member member) {
-        return repository.save(member);
+    public Member saveMember(@Valid @RequestBody Member member) {
+        return memberService.saveMember(member);
     }
 
     @RequestMapping(method = RequestMethod.PUT)
-    public Member updateMember(@RequestBody Member member) {
-        return repository.save(member);
+    public Member updateMember(@Valid @RequestBody Member member) {
+        return memberService.updateMember(member);
     }
-
 }
