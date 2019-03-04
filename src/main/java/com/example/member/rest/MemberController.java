@@ -1,6 +1,6 @@
 package com.example.member.rest;
 
-import com.example.member.dto.Member;
+import com.example.member.model.Member;
 import com.example.member.service.IMemberService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
