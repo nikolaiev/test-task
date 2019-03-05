@@ -9,7 +9,7 @@ http://localhost:8181/swagger-ui.html
 
 ---
 ### JWT security
-Page `(POST, PUT) http://localhost:8181/` is secured. To access this page, you need to do the following:
+Page `(POST, PUT, DELETE) http://localhost:8181/` is secured. To access this page, you need to do the following:
 
 * **POST** request to `http://localhost:8181/api/signup` with body
 ```json
