@@ -3,6 +3,8 @@ package com.example.member.rest;
 import com.example.member.model.Member;
 import com.example.member.service.IMemberService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -23,11 +25,11 @@ public class MemberController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Member getMemberByID(@PathVariable String id) {
-        final Optional<Member> byId = memberService.getMemberByID(id);
+        final Optional<Member> byId = memberService.getMemberById(id);
         return byId.orElse(null);
     }
 
-    @RequestMapping(value = "member/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public void deleteMemberById(@PathVariable String id) {
         memberService.deleteMemberById(id);
     }

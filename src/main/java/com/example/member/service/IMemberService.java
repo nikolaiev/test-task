@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface IMemberService {
     List<Member> getAllMembers();
 
-    Optional<Member> getMemberByID(String id);
+    Optional<Member> getMemberById(String id);
 
     void deleteMemberById(String id);
 

@@ -20,7 +20,7 @@ public class MemberService implements IMemberService {
     }
 
     @Override
-    public Optional<Member> getMemberByID(String id) {
+    public Optional<Member> getMemberById(String id) {
         return repository.findById(id);
     }
 
