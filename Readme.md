@@ -1,10 +1,10 @@
-#Start the project
+### Start the project
 To start project you should execute next commands:
 - `mvn clean install`
 - `docker-compose up`
 - get to localhost:8181
 
-#Swagger2
+### Swagger2
 http://localhost:8181/swagger-ui.html
 
 ---
